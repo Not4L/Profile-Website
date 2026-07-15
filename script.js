@@ -3,6 +3,23 @@
 // Icons
 lucide.createIcons();
 
+// Loading screen
+const loader = document.getElementById('loader');
+const loaderBar = document.getElementById('loader-bar');
+const loaderPercent = document.getElementById('loader-percent');
+
+let progress = 0;
+const loadInterval = setInterval(() => {
+  progress += Math.random() * 14;
+  if (progress >= 100) {
+    progress = 100;
+    clearInterval(loadInterval);
+    setTimeout(() => loader.classList.add('hidden'), 400);
+  }
+  loaderBar.style.width = progress + '%';
+  loaderPercent.textContent = Math.floor(progress) + '%';
+}, 150);
+
 // Smooth scroll
 const lenis = new Lenis({
   duration: 1.2,
@@ -52,3 +69,11 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.15 }
 );
 revealEls.forEach((el) => revealObserver.observe(el));
+
+// Live clock, top-right of nav
+const clockEl = document.getElementById('nav-clock');
+function updateClock() {
+  clockEl.textContent = new Date().toLocaleTimeString('en-GB'); // HH:MM:SS
+}
+updateClock();
+setInterval(updateClock, 1000);

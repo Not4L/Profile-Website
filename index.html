@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alzidan Fakhri Gunawan</title>
   <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
 
 <!-- Lenis smooth scroll -->
@@ -18,15 +19,32 @@
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
+<svg class="wave-bg" viewBox="0 0 1200 300" preserveAspectRatio="none">
+  <path d="M0,150 C300,80 600,220 1200,120" fill="none" stroke="#3A3226" stroke-width="1.5"/>
+  <path d="M0,200 C300,260 600,140 1200,220" fill="none" stroke="#3A3226" stroke-width="1"/>
+</svg>
+<div id="loader">
+  <div class="walk-stage">
+    <div class="pixel-guy">
+      <div class="pg-head"></div>
+      <div class="pg-body"></div>
+      <div class="pg-leg pg-leg-l"></div>
+      <div class="pg-leg pg-leg-r"></div>
+    </div>
+  </div>
+  <p class="loader-text">LOADING <span id="loader-percent">0%</span></p>
+  <div class="loader-track"><div class="loader-bar" id="loader-bar"></div></div>
+</div>
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <a href="#hero" class="nav-logo">AL</a>
-    <div class="nav-links">
-      <a href="#about" class="nav-link" data-section="about">About<span class="nav-dot"></span></a>
-      <a href="#contact" class="nav-link" data-section="contact">Contact<span class="nav-dot"></span></a>
-    </div>
-  </nav>
+  <a href="#hero" class="nav-logo">AL</a>
+  <div class="nav-links">
+    <a href="#about" class="nav-link" data-section="about">About<span class="nav-dot"></span></a>
+    <a href="#contact" class="nav-link" data-section="contact">Contact<span class="nav-dot"></span></a>
+  </div>
+  <span class="nav-clock" id="nav-clock"></span>
+</nav>
 
   <!-- SOCIAL RAIL (image/icon-based links, not text) -->
   <aside class="social-rail">
@@ -60,17 +78,37 @@
 
   <!-- ABOUT -->
   <section class="about" id="about">
-    <h2 class="reveal">About</h2>
-    <p class="bio reveal">
-      A Web Developer currently learning video editing, with a growing interest in game development.
-    </p>
-    <div class="tags reveal">
-      <span class="tag">English proficiency</span>
-      <span class="tag">Disciplined</span>
-      <span class="tag">Communication</span>
-      <span class="tag">Team player</span>
+  <p class="eyebrow reveal">Three sides, one person</p>
+  <h2 class="reveal">Dev, editor, gamer</h2>
+  <p class="bio reveal">
+    A Web Developer currently learning video editing, with a growing interest in game development.
+  </p>
+
+  <div class="identity-cards">
+    <div class="id-card reveal">
+      <i data-lucide="code-2"></i>
+      <h3>The Developer</h3>
+      <p>SMK student building a print shop management system with PHP &amp; MySQL as a 6-month internship project.</p>
     </div>
-  </section>
+    <div class="id-card reveal">
+      <i data-lucide="film"></i>
+      <h3>The Editor</h3>
+      <p>Currently learning video editing — picking up pacing, cuts, and how to tell a story with footage.</p>
+    </div>
+    <div class="id-card reveal">
+      <i data-lucide="gamepad-2"></i>
+      <h3>The Gamer</h3>
+      <p>Where the curiosity started — and part of what's pulling me toward game development next.</p>
+    </div>
+  </div>
+
+  <div class="tags reveal">
+    <span class="tag">English proficiency</span>
+    <span class="tag">Disciplined</span>
+    <span class="tag">Communication</span>
+    <span class="tag">Team player</span>
+  </div>
+</section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
