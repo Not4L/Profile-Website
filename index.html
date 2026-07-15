@@ -1,59 +1,47 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alzidan Fakhri Gunawan</title>
+
   <link rel="preconnect" href="https://api.fontshare.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
 
-<!-- Lenis smooth scroll -->
-<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.25/dist/lenis.css" />
-<script src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js"></script>
-
-<link rel="stylesheet" href="style.css" />
-
-<!-- index.html — add this line near your other CDN links in <head> -->
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.25/dist/lenis.css" />
+  <script src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<form id="contact-form" class="contact-form reveal" action="https://formspree.io/f/xykrzoaw" method="POST"></form>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<svg class="wave-bg" viewBox="0 0 1200 300" preserveAspectRatio="none">
-  <path d="M0,150 C300,80 600,220 1200,120" fill="none" stroke="#3A3226" stroke-width="1.5"/>
-  <path d="M0,200 C300,260 600,140 1200,220" fill="none" stroke="#3A3226" stroke-width="1"/>
-</svg>
-<div id="loader">
-  <div class="walk-stage">
-    <div class="pixel-guy">
-      <div class="pg-head"></div>
-      <div class="pg-body"></div>
-      <div class="pg-leg pg-leg-l"></div>
-      <div class="pg-leg pg-leg-r"></div>
+
+  <div id="loader">
+    <div class="walk-stage">
+      <div class="pixel-guy">
+        <div class="pg-head"></div>
+        <div class="pg-body"></div>
+        <div class="pg-leg pg-leg-l"></div>
+        <div class="pg-leg pg-leg-r"></div>
+      </div>
     </div>
   </div>
-  <p class="loader-text">LOADING <span id="loader-percent">0%</span></p>
-  <div class="loader-track"><div class="loader-bar" id="loader-bar"></div></div>
-</div>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
-  <a href="#hero" class="nav-logo">AL</a>
-  <div class="nav-links">
-    <a href="#about" class="nav-link" data-section="about">About<span class="nav-dot"></span></a>
-    <a href="#contact" class="nav-link" data-section="contact">Contact<span class="nav-dot"></span></a>
-  </div>
-  <span class="nav-clock" id="nav-clock"></span>
-</nav>
+    <a href="#hero" class="nav-logo">AL</a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link" data-section="about">About<span class="nav-dot"></span></a>
+      <a href="#contact" class="nav-link" data-section="contact">Contact<span class="nav-dot"></span></a>
+    </div>
+    <span class="nav-clock" id="nav-clock"></span>
+  </nav>
 
-  <!-- SOCIAL RAIL (image/icon-based links, not text) -->
   <aside class="social-rail">
-    <a href="mailto:youremail@example.com" aria-label="Email"><i data-lucide="mail"></i></a>
-    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
-    <a href="https://instagram.com/yourusername" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+    <a href="mailto:alzzzdan83@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
+    <a href="https://github.com/Not4L" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+    <a href="https://instagram.com/not4l_" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
   </aside>
 
-  <!-- HERO -->
   <section class="hero" id="hero">
     <div class="hero-text">
       <p class="eyebrow reveal">Web Developer — Video Editor — Gamer</p>
@@ -76,56 +64,53 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="about" id="about">
-  <p class="eyebrow reveal">Three sides, one person</p>
-  <h2 class="reveal">Dev, editor, gamer</h2>
-  <p class="bio reveal">
-    A Web Developer currently learning video editing, with a growing interest in game development.
-  </p>
+    <div class="section-panel">
+      <p class="eyebrow reveal">Three sides, one person</p>
+      <h2 class="reveal">Dev, editor, gamer</h2>
+      <p class="bio reveal">
+        A Web Developer currently learning video editing, with a growing interest in game development.
+      </p>
 
-  <div class="identity-cards">
-    <div class="id-card reveal">
-      <i data-lucide="code-2"></i>
-      <h3>The Developer</h3>
-      <p>SMK student building a print shop management system with PHP &amp; MySQL as a 6-month internship project.</p>
-    </div>
-    <div class="id-card reveal">
-      <i data-lucide="film"></i>
-      <h3>The Editor</h3>
-      <p>Currently learning video editing — picking up pacing, cuts, and how to tell a story with footage.</p>
-    </div>
-    <div class="id-card reveal">
-      <i data-lucide="gamepad-2"></i>
-      <h3>The Gamer</h3>
-      <p>Where the curiosity started — and part of what's pulling me toward game development next.</p>
-    </div>
-  </div>
+      <div class="identity-cards">
+        <div class="id-card reveal">
+          <i data-lucide="code-2"></i>
+          <h3>The Developer</h3>
+          <p>SMK student building a print shop management system with PHP &amp; MySQL as a 6-month internship project.</p>
+        </div>
+        <div class="id-card reveal">
+          <i data-lucide="film"></i>
+          <h3>The Editor</h3>
+          <p>Currently learning video editing — picking up pacing, cuts, and how to tell a story with footage.</p>
+        </div>
+        <div class="id-card reveal">
+          <i data-lucide="gamepad-2"></i>
+          <h3>The Gamer</h3>
+          <p>Where the curiosity started — and part of what's pulling me toward game development next.</p>
+        </div>
+      </div>
 
-  <div class="tags reveal">
-    <span class="tag">English proficiency</span>
-    <span class="tag">Disciplined</span>
-    <span class="tag">Communication</span>
-    <span class="tag">Team player</span>
-  </div>
-</section>
+      <div class="tags reveal">
+        <span class="tag">English proficiency</span>
+        <span class="tag">Disciplined</span>
+        <span class="tag">Communication</span>
+        <span class="tag">Team player</span>
+      </div>
+    </div>
+  </section>
 
-  <!-- CONTACT -->
   <section class="contact" id="contact">
+  <div class="section-panel">
     <h2 class="reveal">Contact</h2>
-    <div class="links reveal">
-      <a href="mailto:alzzzdan83@gmail.com" class="link-card">
-        <span class="link-label">Email</span>
-        <span class="link-value">alzzzdan83@gmail.com</span>
-      </a>
-      <a href="https://github.com/Not4L" target="_blank" class="link-card">
-        <span class="link-label">GitHub</span>
-        <span class="link-value">github.com/Not4L</span>
-      </a>
-      <a href="https://instagram.com/not4l_" target="_blank" class="link-card">
-        <span class="link-label">Instagram</span>
-        <span class="link-value">@not4l_</span>
-      </a>
+    <p class="contact-sub reveal">Have a project in mind or just want to say hi? Send me a message below.</p>
+
+      <form id="contact-form" class="contact-form reveal">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <textarea name="message" rows="4" placeholder="Tell me about your project or message..." required></textarea>
+        <button type="submit" id="form-submit-btn">Send message</button>
+        <p id="form-status"></p>
+      </form>
     </div>
   </section>
 

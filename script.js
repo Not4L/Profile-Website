@@ -1,24 +1,10 @@
-// script.js
-
-// Icons
 lucide.createIcons();
 
-// Loading screen
+// Loader — hides once the page is ready, walking guy plays regardless
 const loader = document.getElementById('loader');
-const loaderBar = document.getElementById('loader-bar');
-const loaderPercent = document.getElementById('loader-percent');
-
-let progress = 0;
-const loadInterval = setInterval(() => {
-  progress += Math.random() * 14;
-  if (progress >= 100) {
-    progress = 100;
-    clearInterval(loadInterval);
-    setTimeout(() => loader.classList.add('hidden'), 400);
-  }
-  loaderBar.style.width = progress + '%';
-  loaderPercent.textContent = Math.floor(progress) + '%';
-}, 150);
+window.addEventListener('load', () => {
+  setTimeout(() => loader.classList.add('hidden'), 1200);
+});
 
 // Smooth scroll
 const lenis = new Lenis({
@@ -33,7 +19,6 @@ function raf(time) {
 }
 requestAnimationFrame(raf);
 
-// Nav links scroll smoothly to their section
 document.querySelectorAll('.nav-link').forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
@@ -42,7 +27,6 @@ document.querySelectorAll('.nav-link').forEach((link) => {
   });
 });
 
-// Highlight the active nav link based on which section is in view
 const sections = document.querySelectorAll('#about, #contact');
 const navObserver = new IntersectionObserver(
   (entries) => {
@@ -58,7 +42,6 @@ const navObserver = new IntersectionObserver(
 );
 sections.forEach((s) => navObserver.observe(s));
 
-// Fade in AND out as you scroll past — no more "only once"
 const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -70,10 +53,39 @@ const revealObserver = new IntersectionObserver(
 );
 revealEls.forEach((el) => revealObserver.observe(el));
 
-// Live clock, top-right of nav
 const clockEl = document.getElementById('nav-clock');
 function updateClock() {
-  clockEl.textContent = new Date().toLocaleTimeString('en-GB'); // HH:MM:SS
+  clockEl.textContent = new Date().toLocaleTimeString('en-GB');
 }
 updateClock();
 setInterval(updateClock, 1000);
+
+// Contact form — sends via Formspree, no backend server needed
+const form = document.getElementById('contact-form');
+const statusEl = document.getElementById('form-status');
+const submitBtn = document.getElementById('form-submit-btn');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  statusEl.textContent = 'Sending...';
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    });
+
+    if (response.ok) {
+      statusEl.textContent = 'Message sent — thanks!';
+      form.reset();
+    } else {
+      statusEl.textContent = 'Something went wrong. Try again or email me directly.';
+    }
+  } catch (err) {
+    statusEl.textContent = 'Network error. Try again or email me directly.';
+  }
+
+  submitBtn.disabled = false;
+});
