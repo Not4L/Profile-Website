@@ -1,0 +1,96 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alzidan Fakhri Gunawan</title>
+  <link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
+
+<!-- Lenis smooth scroll -->
+<link rel="stylesheet" href="https://unpkg.com/lenis@1.3.25/dist/lenis.css" />
+<script src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js"></script>
+
+<link rel="stylesheet" href="style.css" />
+
+<!-- index.html — add this line near your other CDN links in <head> -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#hero" class="nav-logo">AL</a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link" data-section="about">About<span class="nav-dot"></span></a>
+      <a href="#contact" class="nav-link" data-section="contact">Contact<span class="nav-dot"></span></a>
+    </div>
+  </nav>
+
+  <!-- SOCIAL RAIL (image/icon-based links, not text) -->
+  <aside class="social-rail">
+    <a href="mailto:youremail@example.com" aria-label="Email"><i data-lucide="mail"></i></a>
+    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+    <a href="https://instagram.com/yourusername" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+  </aside>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <p class="eyebrow reveal">Web Developer — Video Editor — Gamer</p>
+      <h1 class="reveal">Alzidan Fakhri<br />Gunawan</h1>
+      <ul class="fast-facts reveal">
+        <li>SMK student, currently doing an internship (PKL)</li>
+        <li>Building a print shop management system — PHP &amp; MySQL</li>
+        <li>Learning video editing, exploring game development</li>
+      </ul>
+      <a href="#contact" class="cta reveal">Get in touch <i data-lucide="arrow-right"></i></a>
+    </div>
+
+    <div class="hero-photo reveal">
+      <div class="photo-frame">
+        <img src="photo.jpg" alt="Alzidan Fakhri Gunawan" />
+      </div>
+      <span class="floating-tag tag-1"><i data-lucide="code-2"></i> HTML / CSS / JS</span>
+      <span class="floating-tag tag-2"><i data-lucide="film"></i> Davinci Resolve</span>
+      <span class="floating-tag tag-3"><i data-lucide="gamepad-2"></i> Game Dev</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <h2 class="reveal">About</h2>
+    <p class="bio reveal">
+      A Web Developer currently learning video editing, with a growing interest in game development.
+    </p>
+    <div class="tags reveal">
+      <span class="tag">English proficiency</span>
+      <span class="tag">Disciplined</span>
+      <span class="tag">Communication</span>
+      <span class="tag">Team player</span>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2 class="reveal">Contact</h2>
+    <div class="links reveal">
+      <a href="mailto:alzzzdan83@gmail.com" class="link-card">
+        <span class="link-label">Email</span>
+        <span class="link-value">alzzzdan83@gmail.com</span>
+      </a>
+      <a href="https://github.com/Not4L" target="_blank" class="link-card">
+        <span class="link-label">GitHub</span>
+        <span class="link-value">github.com/Not4L</span>
+      </a>
+      <a href="https://instagram.com/not4l_" target="_blank" class="link-card">
+        <span class="link-label">Instagram</span>
+        <span class="link-value">@not4l_</span>
+      </a>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
