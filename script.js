@@ -36,20 +36,17 @@ document.querySelectorAll('.anim-text').forEach((el) => {
   el.innerHTML = words
     .map(
       (w, i) =>
-        `<span class="anim-word-mask"><span class="anim-word" style="transition-delay:${i * 60}ms">${w}</span></span>`
+        `<span class="anim-word-mask"><span class="anim-word" style="transition-delay:${i * 140}ms">${w}</span></span>`
     )
     .join(' ');
 });
 
-// Reveal on scroll — handles both .anim-text (words) and generic [data-anim]
+// Reveal on scroll — fade in when entering, fade out when leaving (don't stay)
 const revealEls = document.querySelectorAll('[data-anim]');
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   },
   { threshold: 0.15 }
@@ -91,6 +88,70 @@ setInterval(updateClock, 1000);
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Floating tags — constant idle drift + cursor avoidance (they run away from the pointer)
+const tags = [...document.querySelectorAll('.floating-tag')].map((el, i) => ({
+  el,
+  phase: i * 2.1,      // offset so they don't bob in sync
+  dodgeX: 0,
+  dodgeY: 0,
+}));
+
+let pointer = { x: -9999, y: -9999 };
+window.addEventListener('pointermove', (e) => {
+  pointer.x = e.clientX;
+  pointer.y = e.clientY;
+});
+window.addEventListener('pointerleave', () => {
+  pointer.x = -9999;
+  pointer.y = -9999;
+});
+
+const AVOID_RADIUS = 130;   // how close the cursor gets before the tag flees
+const AVOID_STRENGTH = 90;  // max push distance in px
+
+function animateTags(t) {
+  const time = t / 1000;
+  tags.forEach((tag, i) => {
+    const rect = tag.el.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+
+    // vector from pointer to tag center
+    const dx = cx - pointer.x;
+    const dy = cy - pointer.y;
+    const dist = Math.hypot(dx, dy);
+
+    let targetX = 0;
+    let targetY = 0;
+    if (dist < AVOID_RADIUS) {
+      const force = (1 - dist / AVOID_RADIUS) * AVOID_STRENGTH;
+      const nx = dx / (dist || 1);
+      const ny = dy / (dist || 1);
+      targetX = nx * force;
+      targetY = ny * force;
+    }
+
+    // ease toward the target dodge position, then spring back when cursor leaves
+    tag.dodgeX += (targetX - tag.dodgeX) * 0.12;
+    tag.dodgeY += (targetY - tag.dodgeY) * 0.12;
+
+    // idle bobbing motion
+    const bobX = Math.sin(time * 0.9 + tag.phase) * 8;
+    const bobY = Math.cos(time * 1.1 + tag.phase) * 10;
+    const rot = Math.sin(time * 0.7 + tag.phase) * 6 + tag.dodgeX * 0.08;
+
+    tag.el.style.setProperty('--tx', (bobX + tag.dodgeX).toFixed(2) + 'px');
+    tag.el.style.setProperty('--ty', (bobY + tag.dodgeY).toFixed(2) + 'px');
+    tag.el.style.setProperty('--rot', rot.toFixed(2) + 'deg');
+
+    tag.el.classList.toggle('dodging', dist < AVOID_RADIUS);
+  });
+  requestAnimationFrame(animateTags);
+}
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (tags.length && !reduceMotion) requestAnimationFrame(animateTags);
 
 // Contact form — sends via Formspree, no backend needed
 const form = document.getElementById('contact-form');
