@@ -11,10 +11,12 @@
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.25/dist/lenis.css" />
   <script src="https://unpkg.com/lenis@1.3.25/dist/lenis.min.js"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<form id="contact-form" class="contact-form reveal" action="https://formspree.io/f/xykrzoaw" method="POST"></form>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <div class="scroll-progress"><span id="scroll-bar"></span></div>
 
   <div id="loader">
     <div class="walk-stage">
@@ -31,6 +33,7 @@
     <a href="#hero" class="nav-logo">AL</a>
     <div class="nav-links">
       <a href="#about" class="nav-link" data-section="about">About<span class="nav-dot"></span></a>
+      <a href="#work" class="nav-link" data-section="work">Work<span class="nav-dot"></span></a>
       <a href="#contact" class="nav-link" data-section="contact">Contact<span class="nav-dot"></span></a>
     </div>
     <span class="nav-clock" id="nav-clock"></span>
@@ -38,23 +41,27 @@
 
   <aside class="social-rail">
     <a href="mailto:alzzzdan83@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
-    <a href="https://github.com/Not4L" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
-    <a href="https://instagram.com/not4l_" target="_blank" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+    <a href="https://github.com/Not4L" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
+    <a href="https://instagram.com/not4l_" target="_blank" rel="noopener" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+    <span class="rail-line"></span>
   </aside>
 
   <section class="hero" id="hero">
     <div class="hero-text">
-      <p class="eyebrow reveal">Web Developer — Video Editor — Gamer</p>
-      <h1 class="reveal">Alzidan Fakhri<br />Gunawan</h1>
-      <ul class="fast-facts reveal">
-        <li>SMK student, currently doing an internship (PKL)</li>
-        <li>Building a print shop management system — PHP &amp; MySQL</li>
+      <p class="eyebrow" data-anim>Web Developer — Video Editor — Gamer</p>
+      <h1 class="anim-text" data-anim>Alzidan Fakhri Gunawan</h1>
+      <ul class="fast-facts" data-anim>
+        <li>SMK student, currently doing an internship</li>
+        <li>Building a management system — PHP &amp; MySQL</li>
         <li>Learning video editing, exploring game development</li>
       </ul>
-      <a href="#contact" class="cta reveal">Get in touch <i data-lucide="arrow-right"></i></a>
+      <div class="hero-actions" data-anim>
+        <a href="#contact" class="cta">Get in touch <i data-lucide="arrow-right"></i></a>
+        <a href="#work" class="cta cta-ghost">See my work</a>
+      </div>
     </div>
 
-    <div class="hero-photo reveal">
+    <div class="hero-photo" data-anim>
       <div class="photo-frame">
         <img src="https://i.pinimg.com/736x/f7/d9/4b/f7d94b5aced1884e8e064bbb356086cf.jpg" alt="Alzidan Fakhri Gunawan" />
       </div>
@@ -64,33 +71,46 @@
     </div>
   </section>
 
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Web Developer</span><span class="dot">•</span>
+      <span>Video Editor</span><span class="dot">•</span>
+      <span>Game Dev</span><span class="dot">•</span>
+      <span>PHP &amp; MySQL</span><span class="dot">•</span>
+      <span>Web Developer</span><span class="dot">•</span>
+      <span>Video Editor</span><span class="dot">•</span>
+      <span>Game Dev</span><span class="dot">•</span>
+      <span>PHP &amp; MySQL</span><span class="dot">•</span>
+    </div>
+  </div>
+
   <section class="about" id="about">
     <div class="section-panel">
-      <p class="eyebrow reveal">Three sides, one person</p>
-      <h2 class="reveal">Dev, editor, gamer</h2>
-      <p class="bio reveal">
+      <p class="eyebrow" data-anim>01 — About</p>
+      <h2 class="anim-text" data-anim>Dev, editor, gamer</h2>
+      <p class="bio" data-anim>
         A Web Developer currently learning video editing, with a growing interest in game development.
       </p>
 
       <div class="identity-cards">
-        <div class="id-card reveal">
+        <div class="id-card" data-anim>
           <i data-lucide="code-2"></i>
-          <h3>The Developer</h3>
-          <p>SMK student building a print shop management system with PHP &amp; MySQL as a 6-month internship project.</p>
+          <h3>Developer</h3>
+          <p>SMK student building a management system with PHP &amp; MySQL as an internship project.</p>
         </div>
-        <div class="id-card reveal">
+        <div class="id-card" data-anim>
           <i data-lucide="film"></i>
-          <h3>The Editor</h3>
+          <h3>Editor</h3>
           <p>Currently learning video editing — picking up pacing, cuts, and how to tell a story with footage.</p>
         </div>
-        <div class="id-card reveal">
+        <div class="id-card" data-anim>
           <i data-lucide="gamepad-2"></i>
-          <h3>The Gamer</h3>
+          <h3>Gamer</h3>
           <p>Where the curiosity started — and part of what's pulling me toward game development next.</p>
         </div>
       </div>
 
-      <div class="tags reveal">
+      <div class="tags" data-anim>
         <span class="tag">English proficiency</span>
         <span class="tag">Disciplined</span>
         <span class="tag">Communication</span>
@@ -99,19 +119,105 @@
     </div>
   </section>
 
-  <section class="contact" id="contact">
-  <div class="section-panel">
-    <h2 class="reveal">Contact</h2>
-    <p class="contact-sub reveal">Have a project in mind or just want to say hi? Send me a message below.</p>
+  <section class="work" id="work">
+    <div class="section-panel">
+      <p class="eyebrow" data-anim>02 — Selected work</p>
+      <h2 class="anim-text" data-anim>Things I've built</h2>
 
-      <form id="contact-form" class="contact-form reveal">
+      <div class="projects">
+        <article class="project-card" data-anim>
+          <div class="project-media">
+            <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=clean%20modern%20admin%20dashboard%20UI%20for%20a%20management%20system%2C%20dark%20theme%2C%20tables%20and%20charts%2C%20PHP%20MySQL%20web%20app%2C%20professional%20screenshot&image_size=landscape_4_3" alt="Management System dashboard" loading="lazy" />
+            <span class="project-index">01</span>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <h3>Management System</h3>
+              <span class="project-year">2026</span>
+            </div>
+            <p>An internship project — a full data management system with authentication, CRUD records and reporting, built on PHP &amp; MySQL.</p>
+            <div class="project-tags">
+              <span>PHP</span><span>MySQL</span><span>Bootstrap</span>
+            </div>
+            <a href="https://github.com/Not4L" target="_blank" rel="noopener" class="project-link">View project <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card" data-anim>
+          <div class="project-media">
+            <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=personal%20developer%20portfolio%20website%20dark%20theme%20with%20lime%20green%20accent%2C%20minimal%20modern%20design%2C%20hero%20section%2C%20professional%20web%20screenshot&image_size=landscape_4_3" alt="Portfolio website" loading="lazy" />
+            <span class="project-index">02</span>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <h3>This Portfolio</h3>
+              <span class="project-year">2026</span>
+            </div>
+            <p>The site you're on — an interactive, animated personal profile with smooth scroll and scroll-reveal motion, built from scratch.</p>
+            <div class="project-tags">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <a href="https://github.com/Not4L" target="_blank" rel="noopener" class="project-link">View project <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </article>
+
+        <article class="project-card is-placeholder" data-anim>
+          <div class="project-media">
+            <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=indie%20game%20development%20project%20concept%20art%2C%20pixel%20style%20character%2C%20dark%20moody%20scene%2C%20game%20screenshot&image_size=landscape_4_3" alt="Game dev experiment" loading="lazy" />
+            <span class="project-index">03</span>
+          </div>
+          <div class="project-body">
+            <div class="project-head">
+              <h3>Your Next Project</h3>
+              <span class="project-year">Soon</span>
+            </div>
+            <p>Add another project here — a video edit, a game prototype, anything you've made. Just duplicate this card and swap the details.</p>
+            <div class="project-tags">
+              <span>Editable</span>
+            </div>
+            <a href="#contact" class="project-link">Coming soon <i data-lucide="arrow-up-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-panel contact-panel">
+      <div class="contact-info">
+        <p class="eyebrow" data-anim>03 — Contact</p>
+        <h2 class="anim-text" data-anim>Let's build something</h2>
+        <p class="contact-sub" data-anim>Have a project in mind or just want to say hi? Send me a message, or reach me on any of these.</p>
+
+        <div class="contact-socials" data-anim>
+          <a href="mailto:alzzzdan83@gmail.com" class="social-btn">
+            <i data-lucide="mail"></i>
+            <span><span class="social-label">Email</span>alzzzdan83@gmail.com</span>
+          </a>
+          <a href="https://github.com/Not4L" target="_blank" rel="noopener" class="social-btn">
+            <i data-lucide="github"></i>
+            <span><span class="social-label">GitHub</span>@Not4L</span>
+          </a>
+          <a href="https://instagram.com/not4l_" target="_blank" rel="noopener" class="social-btn">
+            <i data-lucide="instagram"></i>
+            <span><span class="social-label">Instagram</span>@not4l_</span>
+          </a>
+        </div>
+      </div>
+
+      <form id="contact-form" class="contact-form" data-anim action="https://formspree.io/f/xykrzoaw" method="POST">
         <input type="text" name="name" placeholder="Your name" required />
         <input type="email" name="email" placeholder="your@email.com" required />
         <textarea name="message" rows="4" placeholder="Tell me about your project or message..." required></textarea>
-        <button type="submit" id="form-submit-btn">Send message</button>
+        <button type="submit" id="form-submit-btn">Send message <i data-lucide="send"></i></button>
         <p id="form-status"></p>
       </form>
     </div>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Alzidan Fakhri Gunawan</span>
+      <a href="#hero" class="back-top">Back to top <i data-lucide="arrow-up"></i></a>
+    </footer>
   </section>
 
   <script src="script.js"></script>
